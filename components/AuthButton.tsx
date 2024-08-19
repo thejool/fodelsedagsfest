@@ -1,37 +1,25 @@
-import { createClient } from "@/utils/supabase/server";
-import Link from "next/link";
-import { redirect } from "next/navigation";
+"use client"; // Mark this as a client component
 
-export default async function AuthButton() {
-  const supabase = createClient();
+import { useRouter } from "next/navigation";
+import { Button } from "./ui/button";
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+export default function AuthButton() {
+  const router = useRouter();
 
-  const signOut = async () => {
-    "use server";
+  async function handleSignIn() {
+    const response = await fetch('/api/auth/spotify');
+    const { url } = await response.json();
 
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    return redirect("/login");
-  };
+    if (url) {
+      router.push(url);
+    } else {
+      console.error('Failed to get the sign-in URL');
+    }
+  }
 
-  return user ? (
-    <div className="flex items-center gap-4">
-      Hey, {user.email}!
-      <form action={signOut}>
-        <button className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover">
-          Logout
-        </button>
-      </form>
-    </div>
-  ) : (
-    <Link
-      href="/login"
-      className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
-    >
-      Login
-    </Link>
+  return (
+    <Button type="button" onClick={handleSignIn}>
+      Sign in with Spotify
+    </Button>
   );
 }
