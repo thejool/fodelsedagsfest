@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import React from "react";
 import Image from 'next/image'
+import JSConfetti from 'js-confetti'
+
 
 export default function Index() {
   const [api, setApi] = React.useState<CarouselApi>()
@@ -23,9 +25,16 @@ export default function Index() {
     })
   }, [api])
 
+  const onClick = () => {
+    const jsConfetti = new JSConfetti()
+
+    jsConfetti.addConfetti({
+      emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
+    })
+  }
 
   return (
-    <div className="flex flex-col items-center justify-center py-2 max-w-md w-full my-8 p-4 noto-serif text-center">
+    <div className="flex flex-col items-center justify-center py-2 max-w-md w-full my-8 p-4 noto-serif text-center" onClick={onClick}>
       <h1 className="text-xl font-bold mb-4">
         Sonia, Elviras och Joels 30 årsfest!
       </h1>
