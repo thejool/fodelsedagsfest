@@ -60,9 +60,20 @@ const images: Record<string, string[]> = {
     '/penguin/pingvin-6.jpg',
     '/penguin/pingvin-7.jpg',
   ],
-  unicorn: [''],
+  unicorn: [
+    '/unicorn/unicorn-1.jpg',
+    '/unicorn/unicorn-2.jpg',
+    '/unicorn/unicorn-3.jpg',
+    '/unicorn/unicorn-4.jpg',
+    '/unicorn/unicorn-5.jpg',
+    '/unicorn/unicorn-6.jpg'
+  ],
   popcorn: ['/popcorn/popcorn-1.jpg', '/popcorn/popcorn-2.jpg', '/popcorn/popcorn-3.jpg'],
-  narwhal: ['/narwhal/narwhal-1.jpg']
+  narwhal: [
+    '/narwhal/narwhal-1.jpg',
+    '/narwhal/narwhal-2.jpg',
+    '/narwhal/narwhal-3.jpg',
+  ]
 }
 
 export default function Index({ params }: { params: { slug: string } }) {

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "./button"
 
-export const FunButton = ({ icon }: { icon: string }) => {
+export const FunButton = ({ icon }: { icon?: string }) => {
   return (
     <div className="my-4">
       <Button type="button" asChild className="fun-btn" size='lg'>
