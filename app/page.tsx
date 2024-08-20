@@ -48,6 +48,7 @@ export default function Index() {
         <Carousel
           setApi={setApi}
           plugins={[
+            // @ts-ignore
             Autoplay({
               delay: 4000,
               stopOnInteraction: false
