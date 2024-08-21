@@ -8,10 +8,6 @@ import JSConfetti from 'js-confetti'
 import Autoplay from "embla-carousel-autoplay"
 import { FunButton } from "@/components/ui/FunButton";
 
-// table name
-// upload pictures (grattishälsningar)
-// se kluringar för bordet
-
 const emojis: Record<string, string> = {
   champagne: '🍾',
   dinousarie: '🦖',
@@ -29,51 +25,13 @@ const names: Record<string, string> = {
   narwhal: 'Narwhal'
 }
 
-const images: Record<string, string[]> = {
-  champagne: [
-    '/champagne/champagne-1.jpg',
-    '/champagne/champagne-2.jpg',
-    '/champagne/champagne-3.jpg',
-    '/champagne/champagne-4.jpg',
-    '/champagne/champagne-5.jpg',
-    '/champagne/champagne-6.jpg',
-    '/champagne/champagne-7.jpg',
-    '/champagne/champagne-8.jpg',
-    '/champagne/champagne-9.jpg',
-    '/champagne/champagne-10.jpg',
-    '/champagne/champagne-11.jpg',
-    '/champagne/champagne-12.jpg',
-    '/champagne/champagne-13.jpg',
-    '/champagne/champagne-14.jpg',
-    '/champagne/champagne-15.jpg',
-    '/champagne/champagne-16.jpg',
-    '/champagne/champagne-17.jpg',
-    '/champagne/champagne-18.jpg',
-  ],
-  dinousar: [''],
-  penguin: [
-    '/penguin/pingvin-1.jpg',
-    '/penguin/pingvin-2.jpg',
-    '/penguin/pingvin-3.jpg',
-    '/penguin/pingvin-4.jpg',
-    '/penguin/pingvin-5.jpg',
-    '/penguin/pingvin-6.jpg',
-    '/penguin/pingvin-7.jpg',
-  ],
-  unicorn: [
-    '/unicorn/unicorn-1.jpg',
-    '/unicorn/unicorn-2.jpg',
-    '/unicorn/unicorn-3.jpg',
-    '/unicorn/unicorn-4.jpg',
-    '/unicorn/unicorn-5.jpg',
-    '/unicorn/unicorn-6.jpg'
-  ],
-  popcorn: ['/popcorn/popcorn-1.jpg', '/popcorn/popcorn-2.jpg', '/popcorn/popcorn-3.jpg'],
-  narwhal: [
-    '/narwhal/narwhal-1.jpg',
-    '/narwhal/narwhal-2.jpg',
-    '/narwhal/narwhal-3.jpg',
-  ]
+const images: Record<string, number> = {
+  champagne: 33,
+  dinousar: 14,
+  penguin: 11,
+  unicorn: 10,
+  popcorn: 11,
+  narwhal: 12
 }
 
 export default function Index({ params }: { params: { slug: string } }) {
@@ -130,15 +88,15 @@ export default function Index({ params }: { params: { slug: string } }) {
             loop: true,
           }}>
           <CarouselContent>
-            {images[params.slug].map((image) => (
+            {Array(images[params.slug]).fill(1).map((_image, index) => (
               <CarouselItem>
                 <div className="p-1">
                   <Card>
                     <CardContent className="flex aspect-square items-center justify-center relative">
                       <Image
-                        src={image}
+                        src={`/${params.slug}/${index + 1}.jpg`}
                         fill
-                        alt="Bild på Elvira, Sonia och Joel"
+                        alt="Partybilder"
                         className="object-contain"
                       />
                     </CardContent>
@@ -258,6 +216,36 @@ export default function Index({ params }: { params: { slug: string } }) {
         </p>
         <p className="mb-2">
           JA! (Fast större)
+        </p>
+      </article>
+
+      <article className="mb-6 pb-6 border-b-[1px]">
+        <h1 className="text-md font-bold mb-1">
+          Till spritbolaget ränner jag
+        </h1>
+        <h2 className="text-sm font-semibold mb-3">
+          Melodi: Du kära lille snickerbo
+        </h2>
+
+        <p className="mb-2">
+          Till spritbolaget ränner jag <br />
+          Och bankar på dess port. <br />
+          Jag vill ha nåt’ som bränner bra <br />
+          Och gör mig sketfull fort. <br />
+          Expediten fråga och sa: <br />
+          Hur gammal kan min herre va? <br />
+          Har du nåt legg  ditt fula drägg <br />
+          Kom hit igen när du fått skägg.
+        </p>
+        <p className="mb-2">
+          Nej, detta var ju inte bra, <br />
+          Jag ska bli full i kväll. <br />
+          Då kom jag på en bra idé, <br />
+          Dom har ju sprit på Shell. <br />
+          Många flaskor stod där på rad. <br />
+          Hurra, nu kan jag bli full och glad. <br />
+          Den röda drycken rann ju ner. <br />
+          Nu kan jag inte se nåt mer.
         </p>
       </article>
 
