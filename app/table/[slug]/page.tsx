@@ -30,7 +30,7 @@ const images: Record<string, number> = {
   dinosaur: 14,
   penguin: 12,
   unicorn: 14,
-  popcorn: 11,
+  popcorn: 13,
   narwhal: 18
 }
 
