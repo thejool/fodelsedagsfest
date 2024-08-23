@@ -34,6 +34,44 @@ const images: Record<string, number> = {
   narwhal: 18
 }
 
+const riddles: Record<string, string[]> = {
+  dinosaur: [
+    "Är döpta efter två katter",
+    "Ville bli polishund när hen blev stor",
+    "Har turnerat land och rike med Fricky",
+    "Har försökt muta polisen med sin sista cigarett",
+  ],
+  unicorn: [
+    "Är ett FAKE Arsenal-fan",
+    "Drömde (och försökte tappert) starta ett band tillsammans med Joel",
+    "Har turnerat land och rike med Fricky",
+    "Gick hip-hop linjen på gymnasiet",
+    "Har försökt muta polisen med sin sista cigarett",
+  ],
+  penguin: [
+    "Är en stjärna på pinball (kuggis)",
+    "Har köpt en lapdance till Sonia",
+    "Blev tagna på bar gärning efter att ha stulit McDonalds M:et",
+    "Ringde ambulans och blev ivägskickad på bår för att sedan inse att hen enbart var bakis"
+  ],
+  narwhal: [
+    "Har fått pungvred på Nya Zeeland",
+    "Är partykompisar med en av grundarna av paypal",
+    "Bor deltid i Kroatien",
+    "Smet från sin husarrest på ålandsfärjan för att inte missa markolioo",
+    "Har en officiell titel som ”Lord” och äger mark i Skottland",
+    "Har brutit sitt lillfinger 5 gånger och har nedsatt känsel i den",
+  ],
+  popcorn: [
+    "Har tatuerat in ”bara bara bere bere” på röven",
+    "Är så besatt av Anders Hansen att det var temat på hens födelsedagsfest",
+    "Har gjort inbrott på sin gamla grundskola",
+    "Har vunnit VM-brons i Visual Merchandising 🥉",
+    "Har deltagit i melodifestivalen med bland annat Linda Bengtzing"
+  ]
+
+}
+
 export default function Index({ params }: { params: { slug: string } }) {
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
@@ -63,8 +101,8 @@ export default function Index({ params }: { params: { slug: string } }) {
   return (
     <div className="flex flex-col items-center">
       <div className="flex flex-col items-center justify-center py-2 max-w-md w-full my-8 p-4 noto-serif text-center" onClick={onClick}>
-        <h1 className="text-xl font-bold mb-4">
-          Sonia, Elviras och Joels 90-årsfest!
+        <h1 className="text-[30px] font-bold mb-4">
+          Sonia, Elviras och Joels 90-årsfest! 🥳
         </h1>
 
         <FunButton icon={emojis[params.slug]} />
@@ -107,6 +145,18 @@ export default function Index({ params }: { params: { slug: string } }) {
               ))}
             </CarouselContent>
           </Carousel>
+          {riddles[params.slug] && (
+            <>
+              <h3 className="mt-5 text-lg font-bold mb-4 flex items-center justify-center">
+                Gissa vem/vilka vid bordet:
+              </h3>
+              <ul>
+                {riddles[params.slug].map((riddle) => (
+                  <li className="mb-4">✅ {riddle}</li>
+                ))}
+              </ul>
+            </>
+          )}
         </section>
         <article className="mb-6 pb-6 border-b-[1px]">
           <h1 className="text-md font-bold mb-3">
