@@ -51,7 +51,8 @@ const riddles: Record<string, string[]> = {
   penguin: [
     "Är en stjärna på pinball (kuggis)",
     "Har köpt en lapdance till Sonia",
-    "Blev tagna på bar gärning efter att ha stulit McDonalds M:et",
+    "Svensk rekordhållare i simning",
+    "Blev tagna på bar gärning efter att ha stulit McDonalds skylten",
     "Ringde ambulans och blev ivägskickad på bår för att sedan inse att hen enbart var bakis"
   ],
   narwhal: [
