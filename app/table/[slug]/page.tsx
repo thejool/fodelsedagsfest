@@ -27,7 +27,7 @@ const names: Record<string, string> = {
 
 const images: Record<string, number> = {
   champagne: 50,
-  dinosaur: 14,
+  dinosaur: 16,
   penguin: 12,
   unicorn: 14,
   popcorn: 13,
