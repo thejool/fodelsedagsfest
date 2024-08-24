@@ -38,8 +38,8 @@ const riddles: Record<string, string[]> = {
   dinosaur: [
     "Är döpta efter två katter",
     "Ville bli polishund när hen blev stor",
-    "Har turnerat land och rike med Fricky",
-    "Har försökt muta polisen med sin sista cigarett",
+    "Sitter i bajen fans styrelse",
+    "Är kompis med Tilde de Paula",
   ],
   unicorn: [
     "Är ett FAKE Arsenal-fan",
